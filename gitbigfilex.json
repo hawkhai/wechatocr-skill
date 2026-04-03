@@ -12,9 +12,6 @@
   "meta_symlink": true,
   "others": [
     "wechatocr",
-    "upgrade_launcher.bat",
-    "upgrade.bat",
-    "wechatocr.bat",
     "wechatocr_demo.py"
   ],
   "removelist": [],
@@ -25,11 +22,8 @@
   "timeout_reserved_note": "不会清理最新的 20 个文件夹（保底保留文件夹个数）。",
   "upload": {
     "comment": "这个节点是程序自动维护的，不要修改。上面的 'others' 字段支持配置文件夹。",
-    "count": 96,
+    "count": 93,
     "others": [
-      "upgrade.bat",
-      "upgrade_launcher.bat",
-      "wechatocr.bat",
       "wechatocr\\wechatocr_1-7079.infz",
       "wechatocr\\wechatocr_serv.exe",
       "wechatocr\\x64\\api-ms-win-base-util-l1-1-0.dll",

@@ -1,7 +1,4 @@
-"gitbigfilex.json" 0973b871389a3e03d8d1b819a50e0a7a 6481
-"upgrade.bat" 9d1ef1ed5bacf4780fd9803f2a0ed06e 298
-"upgrade_launcher.bat" c00eb34a5eeba5497152f5961dcc425c 131
-"wechatocr.bat" e99530184feb8f8bb7a67b5390bad82e 127
+"gitbigfilex.json" 8b1bdaf96425ae9b160182506add5e7c 6333
 "wechatocr\wechatocr_1-7079.infz" 5aff92a41eb3749c269c615e282a1274 29950272
 "wechatocr\wechatocr_serv.exe" 033bfe5ffe1da6f572b8d93e5d956abe 5032960
 "wechatocr\x64\api-ms-win-base-util-l1-1-0.dll" fbbfdba614afc9b3b8a9561c0cc7fab0 11272
