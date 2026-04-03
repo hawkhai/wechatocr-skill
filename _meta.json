@@ -1,0 +1,11 @@
+{
+  "owner": "easyclaw",
+  "slug": "wechatocr",
+  "displayName": "WechatOCR",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1743382000000,
+    "commit": ""
+  },
+  "history": []
+}
