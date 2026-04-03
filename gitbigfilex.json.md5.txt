@@ -1,1 +1,1 @@
-wechatocr
+wechatocr-skill
