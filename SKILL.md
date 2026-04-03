@@ -72,10 +72,12 @@ python wechatocr_demo.py
   "code": 100,
   "result": {
     "code": 100,
-    "infer_time": 114.24,
+    "infer_time": 212.64,
     "result": true,
     "json": {
       "err_code": 0,
+      "task_id": 1,
+      "type": 0,
       "ocr_result": {
         "single_result": [
           {
@@ -85,6 +87,9 @@ python wechatocr_demo.py
             "left": 170.262512,
             "bottom": 183.112503,
             "right": 257.803131,
+            "single_pos": {"pos": [{"x": 170.262512, "y": 133.318756}]},
+            "unknown_0": 1,
+            "unknown_pos": {"pos": [{"x": 172.824081, "y": 139.7939}]},
             "one_result": [
               {"one_str_utf8": "测", "one_pos": {"pos": [{"x": 170.26, "y": 133.31}]}},
               {"one_str_utf8": "试", "one_pos": {"pos": [{"x": 201.52, "y": 133.31}]}}
@@ -97,15 +102,20 @@ python wechatocr_demo.py
             "left": 384.572876,
             "bottom": 362.648682,
             "right": 567.91687,
+            "single_pos": {"pos": [{"x": 384.808441, "y": 329.484406}]},
+            "unknown_0": 1,
+            "unknown_pos": {"pos": [{"x": 359.526978, "y": 325.792694}]},
             "one_result": [
               {"one_str_utf8": "wechatocr", "one_pos": {"pos": [{"x": 392.60, "y": 329.54}]}}
             ]
           }
-        ]
+        ],
+        "unknown_1": 771,
+        "unknown_2": 479
       }
     }
   },
-  "time": 125
+  "time": 218
 }
 ```
 
@@ -115,8 +125,15 @@ python wechatocr_demo.py
 | `single_str_utf8` | Full text of the block |
 | `single_rate` | Confidence score (0–1) |
 | `top` / `left` / `bottom` / `right` | Bounding box coordinates (pixels) |
+| `single_pos` | Top-left anchor position of the text block |
+| `unknown_0` | Reserved field (always `1`) |
+| `unknown_pos` | Reserved position field |
 | `one_result[].one_str_utf8` | Per-character recognition result |
 | `one_result[].one_pos` | Per-character position |
+| `result.json.task_id` | Task sequence number |
+| `result.json.type` | Result type flag (always `0`) |
+| `result.json.ocr_result.unknown_1` | Image width (pixels) |
+| `result.json.ocr_result.unknown_2` | Image height (pixels) |
 | `result.infer_time` | Inference time (ms) |
 | `time` | Total response time (ms) |
 

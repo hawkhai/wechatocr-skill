@@ -59,10 +59,12 @@ python wechatocr_demo.py
   "code": 100,
   "result": {
     "code": 100,
-    "infer_time": 114.24,
+    "infer_time": 212.64,
     "result": true,
     "json": {
       "err_code": 0,
+      "task_id": 1,
+      "type": 0,
       "ocr_result": {
         "single_result": [
           {
@@ -72,6 +74,9 @@ python wechatocr_demo.py
             "left": 170.262512,
             "bottom": 183.112503,
             "right": 257.803131,
+            "single_pos": {"pos": [{"x": 170.262512, "y": 133.318756}]},
+            "unknown_0": 1,
+            "unknown_pos": {"pos": [{"x": 172.824081, "y": 139.7939}]},
             "one_result": [
               {"one_str_utf8": "测", "one_pos": {"pos": [{"x": 170.26, "y": 133.31}]}},
               {"one_str_utf8": "试", "one_pos": {"pos": [{"x": 201.52, "y": 133.31}]}}
@@ -84,15 +89,20 @@ python wechatocr_demo.py
             "left": 384.572876,
             "bottom": 362.648682,
             "right": 567.91687,
+            "single_pos": {"pos": [{"x": 384.808441, "y": 329.484406}]},
+            "unknown_0": 1,
+            "unknown_pos": {"pos": [{"x": 359.526978, "y": 325.792694}]},
             "one_result": [
               {"one_str_utf8": "wechatocr", "one_pos": {"pos": [{"x": 392.60, "y": 329.54}]}}
             ]
           }
-        ]
+        ],
+        "unknown_1": 771,
+        "unknown_2": 479
       }
     }
   },
-  "time": 125
+  "time": 218
 }
 ```
 
@@ -104,7 +114,14 @@ python wechatocr_demo.py
 | `single_str_utf8` | 文字块的完整识别文本 |
 | `single_rate` | 置信度（0～1） |
 | `top` / `left` / `bottom` / `right` | 文字块边界框坐标（像素） |
+| `single_pos` | 文字块左上角锚点坐标 |
+| `unknown_0` | 保留字段（固定为 `1`） |
+| `unknown_pos` | 保留位置字段 |
 | `one_result[].one_str_utf8` | 单字符识别结果 |
 | `one_result[].one_pos` | 单字符位置坐标 |
+| `result.json.task_id` | 任务序号 |
+| `result.json.type` | 结果类型标志（固定为 `0`） |
+| `result.json.ocr_result.unknown_1` | 图像宽度（像素） |
+| `result.json.ocr_result.unknown_2` | 图像高度（像素） |
 | `result.infer_time` | 推理耗时（毫秒） |
 | `time` | 总耗时（毫秒） |

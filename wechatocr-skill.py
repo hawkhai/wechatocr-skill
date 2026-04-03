@@ -64,7 +64,7 @@ def start_server() -> bool:
     print(f"[INFO] Starting WechatOCR server: {exe}")
     subprocess.Popen(
         [exe],
-        cwd=os.path.dirname(exe),
+        cwd=str(SKILL_DIR),
         creationflags=getattr(subprocess, "DETACHED_PROCESS", 0),
     )
     for _ in range(10):
