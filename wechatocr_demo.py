@@ -1,6 +1,7 @@
 #encoding=utf8
 import re, os, sys
 import time, json
+import subprocess
 import requests
 
 def writefile(path, data, encoding="ISO8859-1", force=False):
@@ -15,6 +16,23 @@ def writefile(path, data, encoding="ISO8859-1", force=False):
     fout.write(data)
     fout.close()
     return True
+
+def find_wechatocr_serv():
+    work_dir = os.path.split(os.path.abspath(__file__))[0]
+    return os.path.join(work_dir, "wechatocr", "wechatocr_serv.exe")
+
+def is_wechatocr_serv_running():
+    output = subprocess.check_output(["tasklist", "/FI", "IMAGENAME eq wechatocr_serv.exe"], encoding="gbk", errors="ignore")
+    return "wechatocr_serv.exe" in output
+
+def ensure_wechatocr_serv_running():
+    if not is_wechatocr_serv_running():
+        serv_path = find_wechatocr_serv()
+        print(f"[wechatocr] wechatocr_serv.exe not running, starting: {serv_path}")
+        subprocess.Popen([serv_path], cwd=os.path.dirname(serv_path))
+        time.sleep(2)
+    else:
+        print("[wechatocr] wechatocr_serv.exe already running")
 
 def find_model():
     wechatocrfile = "wechatocr_1-7079.infz"
@@ -47,6 +65,7 @@ def wechatocr_netget(fpath, force=False):
     }
     reqdata = json.dumps(reqdata).encode("utf8")
     print(reqdata)
+    ensure_wechatocr_serv_running()
     response = requests.get("http://127.0.0.1:8811/Infai/Echo", data=reqdata)
     fdata = response.json()
 
