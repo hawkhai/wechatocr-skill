@@ -7,7 +7,7 @@
 
 - **OS:** Windows
 - **Python:** 3.6+（系统 PATH 中的 `python`，或 easyclaw 内置 Python 3.11.9）
-- **WechatOCR 推理服务器：** `infserv64.exe`（自动启动）或手动在 `127.0.0.1:8811` 上预先运行
+- **WechatOCR 推理服务：** `wechatocr_serv.exe`（自动启动）或手动在 `127.0.0.1:8811` 上预先运行
 
 ## File Structure
 
@@ -17,15 +17,13 @@ wechatocr-skill\
   wechatocr-skill.py        # 主逻辑
   wechatocr_demo.py         # 简易演示脚本（依赖 requests 库）
   wechatocr\
-    wechatocr_serv.exe      # 服务端（demo 脚本使用）
-    wechatocr_1-7079.infz   # 模型文件（demo 脚本使用）
-    serv\
-      runtime\
-        infserv64.exe       # 服务端（主脚本使用）← 自动启动
-      wechatocr_1-7079.infz # 模型文件（主脚本使用）
+    wechatocr_serv.exe      # HTTP 服务端（主脚本 & demo 共用）← 自动启动
+    wechatocr_1-7079.infz   # 模型文件（两个脚本共用）
+    x64\
+      infocr64.exe          # 推理后台进程（wechatocr_serv.exe 内部使用）
 ```
 
-环境变量 `WECHATOCR_DIR` 可覆盖 `infserv64.exe` 的搜索根目录。
+环境变量 `WECHATOCR_DIR` 可覆盖 `wechatocr_serv.exe` 的搜索根目录。
 
 ## Usage
 
@@ -45,7 +43,7 @@ python wechatocr_demo.py
 
 ## What It Does
 
-1. 检测 `127.0.0.1:8811` 服务是否在线；若未启动则自动启动 `infserv64.exe`，最多等待 10 秒。
+1. 检测 `127.0.0.1:8811` 服务是否在线；若未启动则自动启动 `infocr64.exe`，最多等待 10 秒。
 2. 对每张图片向服务发送 HTTP 请求（`POST http://127.0.0.1:8811/Infai/Echo`）。
 3. 将结果写入与图片同目录的 `<name>_wechatocr.json`。
 4. 已有 JSON 文件时自动跳过（除非指定 `--force`）。

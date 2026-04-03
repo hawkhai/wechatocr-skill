@@ -7,13 +7,12 @@ import pathlib
 import subprocess
 import sys
 import time
-import urllib.error
 import urllib.request
 
 SERVICE_URL = "http://127.0.0.1:8811/Infai/Echo"
 SUPPORTED_EXT = {".jpg", ".jpeg", ".png", ".bmp"}
 MODEL_NAME = "wechatocr_1-7079.infz"
-SERVER_EXE = "infserv64.exe"
+SERVER_EXE = "wechatocr_serv.exe"
 
 SKILL_DIR = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,16 +24,16 @@ SKILL_DIR = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
 def find_model() -> str:
     """Locate wechatocr_1-7079.infz; checks WECHATOCR_DIR env var then skill directory."""
     for base in filter(None, [os.environ.get("WECHATOCR_DIR"), str(SKILL_DIR)]):
-        candidate = os.path.join(base, "wechatocr", "serv", MODEL_NAME)
+        candidate = os.path.join(base, "wechatocr", MODEL_NAME)
         if os.path.exists(candidate):
             return os.path.abspath(candidate)
     return ""
 
 
 def find_server_exe() -> str:
-    """Locate infserv64.exe; checks WECHATOCR_DIR env var then skill directory."""
+    """Locate wechatocr_serv.exe; checks WECHATOCR_DIR env var then skill directory."""
     for base in filter(None, [os.environ.get("WECHATOCR_DIR"), str(SKILL_DIR)]):
-        candidate = os.path.join(base, "wechatocr", "serv", "runtime", SERVER_EXE)
+        candidate = os.path.join(base, "wechatocr", SERVER_EXE)
         if os.path.exists(candidate):
             return os.path.abspath(candidate)
     return ""
@@ -46,34 +45,28 @@ def find_server_exe() -> str:
 
 def is_service_running() -> bool:
     try:
-        payload = json.dumps({"message": "{}", "name": "ping"}).encode("utf-8")
-        req = urllib.request.Request(SERVICE_URL, data=payload)
-        with urllib.request.urlopen(req, timeout=2):
-            return True
+        output = subprocess.check_output(
+            ["tasklist", "/FI", f"IMAGENAME eq {SERVER_EXE}"],
+            encoding="gbk", errors="ignore",
+        )
+        return SERVER_EXE in output
     except Exception:
         return False
 
 
 def start_server() -> bool:
-    """Start infserv64.exe if not already running. Returns True when service is available."""
+    """Start wechatocr_serv.exe if not already running. Returns True when service is available."""
     if is_service_running():
+        print(f"[wechatocr] {SERVER_EXE} already running")
         return True
     exe = find_server_exe()
     if not exe:
+        print(f"[WARN] {SERVER_EXE} not found.", file=sys.stderr)
         return False
-    print(f"[INFO] Starting WechatOCR server: {exe}")
-    subprocess.Popen(
-        [exe],
-        cwd=str(SKILL_DIR),
-        creationflags=getattr(subprocess, "DETACHED_PROCESS", 0),
-    )
-    for _ in range(10):
-        time.sleep(1)
-        if is_service_running():
-            print("[INFO] Server ready.")
-            return True
-    print("[WARN] Server did not respond within 10 s.", file=sys.stderr)
-    return False
+    print(f"[wechatocr] {SERVER_EXE} not running, starting: {exe}")
+    subprocess.Popen([exe], cwd=str(SKILL_DIR))
+    time.sleep(2)
+    return True
 
 
 # ---------------------------------------------------------------------------
