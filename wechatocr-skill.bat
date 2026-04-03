@@ -21,5 +21,5 @@ if not defined PYTHON_EXE (
     exit /b 1
 )
 
-"%PYTHON_EXE%" "%SCRIPT_DIR%wechatocr.py" %*
+"%PYTHON_EXE%" "%SCRIPT_DIR%wechatocr-skill.py" %*
 exit /b %ERRORLEVEL%

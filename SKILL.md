@@ -21,7 +21,7 @@ metadata:
 ## Usage
 
 ```bat
-skills\wechatocr\wechatocr.bat [--force] <image_or_dir> ...
+skills\wechatocr-skill\wechatocr-skill.bat [--force] <image_or_dir> ...
 ```
 
 The batch wrapper locates Python automatically (system `PATH` → two easyclaw fallback paths) before running the script.
@@ -40,7 +40,7 @@ The batch wrapper locates Python automatically (system `PATH` → two easyclaw f
 The script looks for `infserv64.exe` at `<base>/wechatocr/serv/runtime/infserv64.exe` where `<base>` is tried in this order:
 
 1. `WECHATOCR_DIR` environment variable (set this to your WechatOCR distribution root).
-2. The skill directory itself (`skills\wechatocr\`).
+2. The skill directory itself (`skills\wechatocr-skill\`).
 
 Expected layout inside the distribution / skill folder:
 
@@ -49,7 +49,7 @@ wechatocr\
   wechatocr.exe          # CLI client (optional)
   serv\
     runtime\
-      infserv64.exe      # inference server  ← auto-started
+      infserv64.exe      # inference server  <- auto-started
     wechatocr_1-7079.infz  # model file
 ```
 
