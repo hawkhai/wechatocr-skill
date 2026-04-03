@@ -19,7 +19,7 @@ def writefile(path, data, encoding="ISO8859-1", force=False):
 def find_model():
     wechatocrfile = "wechatocr_1-7079.infz"
     work_dir = os.path.split(os.path.abspath(__file__))[0]
-    wechatocrinfz = os.path.join(work_dir, "wechatocr", "serv", wechatocrfile)
+    wechatocrinfz = os.path.join(work_dir, "wechatocr", wechatocrfile)
     return os.path.abspath(wechatocrinfz)
 
 def wechatocr_netget(fpath, force=False):
