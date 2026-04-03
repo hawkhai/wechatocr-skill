@@ -1,4 +1,4 @@
-"gitbigfilex.json" 4de82b28629050a08008ebd4c1617089 11111
+"gitbigfilex.json" 9f088a9199c3df4123f8fda9fdbce8b4 10944
 "upgrade.bat" 9d1ef1ed5bacf4780fd9803f2a0ed06e 298
 "upgrade_launcher.bat" c00eb34a5eeba5497152f5961dcc425c 131
 "wechatocr.bat" e99530184feb8f8bb7a67b5390bad82e 127
@@ -76,15 +76,12 @@
 "wechatocr\serv\runtime\x64\api-ms-win-security-lsalookup-l2-1-1.dll" 2d974295b84f930cf86ae32389c3518b 11064
 "wechatocr\serv\runtime\x64\api-ms-win-security-provider-l1-1-0.dll" aea763a0dc0152317be353e175a06282 11792
 "wechatocr\serv\runtime\x64\concrt140.dll" d1ba293f1d7bd7b38db8953821d42e9b 316816
-"wechatocr\serv\runtime\x64\infaiss64.dll" 7964ca96141bb430acd0ff666bca7a0b 3036672
 "wechatocr\serv\runtime\x64\infimage64.dll" 249ae834e1f14aa14aea20a56620c0ca 4326400
 "wechatocr\serv\runtime\x64\infncnn64.dll" 038ae8aa8013409f6ce652bcd3511f68 10108928
 "wechatocr\serv\runtime\x64\infocr64.exe" 99eeacd56050014860a8dd7c8371438b 788992
 "wechatocr\serv\runtime\x64\infocr64gpu.dll" 2c03f06eeba181a1c900448157a0e646 8264704
 "wechatocr\serv\runtime\x64\infocrx64.dll" 4a8e361d693719fac053fdc705fd6989 1502208
-"wechatocr\serv\runtime\x64\infonnx64.dll" 7cc61e28fc8b6555fa3f8633d0e48334 3348480
 "wechatocr\serv\runtime\x64\infservx64.dll" 79fa63b46c03ea470cd823bbd8c2d451 248832
-"wechatocr\serv\runtime\x64\inftorch64.dll" d7167954bdb930b6584a292786c7909c 3745792
 "wechatocr\serv\runtime\x64\msvcp140.dll" cb75d6437418afe1a7b52acf75730ff1 565648
 "wechatocr\serv\runtime\x64\msvcp140_1.dll" c1bbf607cd0d540adab62d63a118c0c6 23952
 "wechatocr\serv\runtime\x64\msvcp140_2.dll" dcc3135b7d7c6f32de70ff04fcda20e6 185720
