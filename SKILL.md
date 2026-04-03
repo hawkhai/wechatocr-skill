@@ -46,12 +46,79 @@ Expected layout inside the distribution / skill folder:
 
 ```
 wechatocr\
-  wechatocr.exe          # CLI client (optional)
+  wechatocr_serv.exe       # server used by wechatocr_demo.py
+  wechatocr_1-7079.infz    # model file used by wechatocr_demo.py
   serv\
     runtime\
-      infserv64.exe      # inference server  <- auto-started
-    wechatocr_1-7079.infz  # model file
+      infserv64.exe        # inference server  <- auto-started by main script
+    wechatocr_1-7079.infz  # model file used by main script
 ```
+
+## Demo Script
+
+`wechatocr_demo.py` is a minimal standalone demo (requires `pip install requests`).
+It uses `wechatocr/wechatocr_serv.exe` and `wechatocr/wechatocr_1-7079.infz` directly.
+
+```bat
+python wechatocr_demo.py
+```
+
+## Output JSON Format
+
+结果写入 `<name>_wechatocr.json`，核心结构：
+
+```json
+{
+  "code": 100,
+  "result": {
+    "code": 100,
+    "infer_time": 114.24,
+    "result": true,
+    "json": {
+      "err_code": 0,
+      "ocr_result": {
+        "single_result": [
+          {
+            "single_str_utf8": "测试",
+            "single_rate": 0.9959527,
+            "top": 133.318756,
+            "left": 170.262512,
+            "bottom": 183.112503,
+            "right": 257.803131,
+            "one_result": [
+              {"one_str_utf8": "测", "one_pos": {"pos": [{"x": 170.26, "y": 133.31}]}},
+              {"one_str_utf8": "试", "one_pos": {"pos": [{"x": 201.52, "y": 133.31}]}}
+            ]
+          },
+          {
+            "single_str_utf8": "wechatocr",
+            "single_rate": 0.9989884,
+            "top": 329.484406,
+            "left": 384.572876,
+            "bottom": 362.648682,
+            "right": 567.91687,
+            "one_result": [
+              {"one_str_utf8": "wechatocr", "one_pos": {"pos": [{"x": 392.60, "y": 329.54}]}}
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "time": 125
+}
+```
+
+| Field | Description |
+|---|---|
+| `result.json.ocr_result.single_result` | Array of recognized text blocks |
+| `single_str_utf8` | Full text of the block |
+| `single_rate` | Confidence score (0–1) |
+| `top` / `left` / `bottom` / `right` | Bounding box coordinates (pixels) |
+| `one_result[].one_str_utf8` | Per-character recognition result |
+| `one_result[].one_pos` | Per-character position |
+| `result.infer_time` | Inference time (ms) |
+| `time` | Total response time (ms) |
 
 ## Requirements
 
