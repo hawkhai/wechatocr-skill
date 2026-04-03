@@ -112,14 +112,14 @@ python wechatocr_demo.py
 | `single_str_utf8` | 文字块的完整识别文本 |
 | `single_rate` | 置信度（0～1） |
 | `top` / `left` / `bottom` / `right` | 文字块边界框坐标（像素） |
-| `single_pos` | 文字块左上角锚点坐标 |
-| `unknown_0` | 保留字段（固定为 `1`） |
-| `unknown_pos` | 保留位置字段 |
-| `one_result[].one_str_utf8` | 单字符识别结果 |
-| `one_result[].one_pos` | 单字符位置坐标 |
+| `single_pos` | 文字块**第一个字符**的左上角坐标（推测） |
+| `unknown_0` | 粗体标志 — `0` = 普通边框，`1` = 加粗边框 |
+| `unknown_pos` | **整个文字块**的左上角坐标（推测） |
+| `one_result[].one_str_utf8` | 单字符识别文本 |
+| `one_result[].one_pos` | 单字符起始位置坐标 |
 | `result.json.task_id` | 任务序号 |
-| `result.json.type` | 结果类型标志（固定为 `0`） |
-| `result.json.ocr_result.unknown_1` | 图像宽度（像素） |
-| `result.json.ocr_result.unknown_2` | 图像高度（像素） |
+| `result.json.type` | 结果类型 — 目前仅观察到 `0` |
+| `result.json.ocr_result.unknown_1` | 图像宽度（像素，经断言验证） |
+| `result.json.ocr_result.unknown_2` | 图像高度（像素，经断言验证） |
 | `result.infer_time` | 推理耗时（毫秒） |
 | `time` | 总耗时（毫秒） |

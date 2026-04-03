@@ -123,15 +123,15 @@ python wechatocr_demo.py
 | `single_str_utf8` | Full text of the block |
 | `single_rate` | Confidence score (0–1) |
 | `top` / `left` / `bottom` / `right` | Bounding box coordinates (pixels) |
-| `single_pos` | Top-left anchor position of the text block |
-| `unknown_0` | Reserved field (always `1`) |
-| `unknown_pos` | Reserved position field |
-| `one_result[].one_str_utf8` | Per-character recognition result |
-| `one_result[].one_pos` | Per-character position |
+| `single_pos` | Top-left position of the **first character** in the block (inferred) |
+| `unknown_0` | Bold/emphasis flag — `0` = normal border, `1` = bold border |
+| `unknown_pos` | Top-left position of the **entire text block** (inferred) |
+| `one_result[].one_str_utf8` | Per-character recognition text |
+| `one_result[].one_pos` | Per-character start position |
 | `result.json.task_id` | Task sequence number |
-| `result.json.type` | Result type flag (always `0`) |
-| `result.json.ocr_result.unknown_1` | Image width (pixels) |
-| `result.json.ocr_result.unknown_2` | Image height (pixels) |
+| `result.json.type` | Result type — only `0` currently observed/supported |
+| `result.json.ocr_result.unknown_1` | Image width (pixels) — confirmed by assertion |
+| `result.json.ocr_result.unknown_2` | Image height (pixels) — confirmed by assertion |
 | `result.infer_time` | Inference time (ms) |
 | `time` | Total response time (ms) |
 
