@@ -43,8 +43,8 @@ python wechatocr_demo.py
 
 ## What It Does
 
-1. 检测 `127.0.0.1:8811` 服务是否在线；若未启动则自动启动 `infocr64.exe`，最多等待 10 秒。
-2. 对每张图片向服务发送 HTTP 请求（`POST http://127.0.0.1:8811/Infai/Echo`）。
+1. 检测 `wechatocr_serv.exe` 是否在运行（via `tasklist`）；若未启动则自动启动，等待 2 秒。
+2. 对每张图片向服务发送 HTTP 请求（`GET http://127.0.0.1:8811/Infai/Echo`）。
 3. 将结果写入与图片同目录的 `<name>_wechatocr.json`。
 4. 已有 JSON 文件时自动跳过（除非指定 `--force`）。
 

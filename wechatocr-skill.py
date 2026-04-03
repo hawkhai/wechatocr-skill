@@ -64,7 +64,7 @@ def start_server() -> bool:
         print(f"[WARN] {SERVER_EXE} not found.", file=sys.stderr)
         return False
     print(f"[wechatocr] {SERVER_EXE} not running, starting: {exe}")
-    subprocess.Popen([exe], cwd=str(SKILL_DIR))
+    subprocess.Popen([exe], cwd=os.path.dirname(exe))
     time.sleep(2)
     return True
 
@@ -91,7 +91,7 @@ def ocr_image(image_path: str, force: bool = False) -> str:
 
     try:
         payload = json.dumps({"message": json.dumps(message), "name": "wechatocr"}).encode("utf-8")
-        req = urllib.request.Request(SERVICE_URL, data=payload)
+        req = urllib.request.Request(SERVICE_URL, data=payload, method="GET")
         with urllib.request.urlopen(req) as resp:
             fdata = json.loads(resp.read().decode("utf-8"))
         result = json.dumps(json.loads(fdata["message"]), ensure_ascii=False, indent=2)
