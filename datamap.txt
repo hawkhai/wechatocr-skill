@@ -1,4 +1,4 @@
-"gitbigfilex.json" 9f088a9199c3df4123f8fda9fdbce8b4 10944
+"gitbigfilex.json" 1591b6ec204a7d3ebc0b4ae596991ac5 10894
 "upgrade.bat" 9d1ef1ed5bacf4780fd9803f2a0ed06e 298
 "upgrade_launcher.bat" c00eb34a5eeba5497152f5961dcc425c 131
 "wechatocr.bat" e99530184feb8f8bb7a67b5390bad82e 127
@@ -87,7 +87,6 @@
 "wechatocr\serv\runtime\x64\msvcp140_2.dll" dcc3135b7d7c6f32de70ff04fcda20e6 185720
 "wechatocr\serv\runtime\x64\msvcp140_atomic_wait.dll" bc3ffb90a2c1d810b7b4c5bc5323ea82 56208
 "wechatocr\serv\runtime\x64\msvcp140_codecvt_ids.dll" c262acbf93db7a12ee5741641bf96c9b 20368
-"wechatocr\serv\runtime\x64\ncnn.dll" 27c19b48e2acf77367f5d48c482f662c 10110464
 "wechatocr\serv\runtime\x64\ucrtbase.dll" 0e62191b6e9117179ed989683fef5e6c 1035200
 "wechatocr\serv\runtime\x64\vccorlib140.dll" 4be6c80de3c57937d3b773cd7b2bd37c 334736
 "wechatocr\serv\runtime\x64\vcomp140.dll" e29d050b82ec6129211dc8821f56a202 180600
