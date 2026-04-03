@@ -1,35 +1,48 @@
 #!/usr/bin/env python3
 """OCR images via the local WechatOCR HTTP service (http://127.0.0.1:8811)."""
 
-import os
-import sys
 import json
-import time
+import os
+import pathlib
 import subprocess
-import urllib.request
+import sys
+import time
 import urllib.error
+import urllib.request
 
 SERVICE_URL = "http://127.0.0.1:8811/Infai/Echo"
 SUPPORTED_EXT = {".jpg", ".jpeg", ".png", ".bmp"}
 MODEL_NAME = "wechatocr_1-7079.infz"
 SERVER_EXE = "infserv64.exe"
 
-SKILL_DIR = os.path.dirname(os.path.abspath(__file__))
+SKILL_DIR = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
 
+
+# ---------------------------------------------------------------------------
+# Server and model discovery
+# ---------------------------------------------------------------------------
 
 def find_model() -> str:
-    candidate = os.path.join(SKILL_DIR, "wechatocr", "serv", MODEL_NAME)
-    return os.path.abspath(candidate) if os.path.exists(candidate) else ""
+    """Locate wechatocr_1-7079.infz; checks WECHATOCR_DIR env var then skill directory."""
+    for base in filter(None, [os.environ.get("WECHATOCR_DIR"), str(SKILL_DIR)]):
+        candidate = os.path.join(base, "wechatocr", "serv", MODEL_NAME)
+        if os.path.exists(candidate):
+            return os.path.abspath(candidate)
+    return ""
 
 
 def find_server_exe() -> str:
     """Locate infserv64.exe; checks WECHATOCR_DIR env var then skill directory."""
-    for base in filter(None, [os.environ.get("WECHATOCR_DIR"), SKILL_DIR]):
+    for base in filter(None, [os.environ.get("WECHATOCR_DIR"), str(SKILL_DIR)]):
         candidate = os.path.join(base, "wechatocr", "serv", "runtime", SERVER_EXE)
         if os.path.exists(candidate):
             return os.path.abspath(candidate)
     return ""
 
+
+# ---------------------------------------------------------------------------
+# Service management
+# ---------------------------------------------------------------------------
 
 def is_service_running() -> bool:
     try:
@@ -63,6 +76,10 @@ def start_server() -> bool:
     return False
 
 
+# ---------------------------------------------------------------------------
+# OCR helpers
+# ---------------------------------------------------------------------------
+
 def ocr_image(image_path: str, force: bool = False) -> str:
     image_path = os.path.abspath(image_path)
     base, ext = os.path.splitext(image_path)
@@ -79,12 +96,16 @@ def ocr_image(image_path: str, force: bool = False) -> str:
     if model:
         message["wechatocrfile"] = model
 
-    payload = json.dumps({"message": json.dumps(message), "name": "wechatocr"}).encode("utf-8")
-    req = urllib.request.Request(SERVICE_URL, data=payload)
-    with urllib.request.urlopen(req) as resp:
-        fdata = json.loads(resp.read().decode("utf-8"))
+    try:
+        payload = json.dumps({"message": json.dumps(message), "name": "wechatocr"}).encode("utf-8")
+        req = urllib.request.Request(SERVICE_URL, data=payload)
+        with urllib.request.urlopen(req) as resp:
+            fdata = json.loads(resp.read().decode("utf-8"))
+        result = json.dumps(json.loads(fdata["message"]), ensure_ascii=False, indent=2)
+    except Exception as exc:
+        print(f"[ERROR] {os.path.basename(image_path)}: {exc}", file=sys.stderr)
+        return ""
 
-    result = json.dumps(json.loads(fdata["message"]), ensure_ascii=False, indent=2)
     with open(json_path, "w", encoding="utf-8") as f:
         f.write(result)
     print(f"[OK]   {os.path.basename(image_path)} -> {os.path.basename(json_path)}")
@@ -99,16 +120,21 @@ def ocr_dir(directory: str, force: bool = False) -> None:
             ocr_dir(entry.path, force=force)
 
 
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
 def main() -> None:
     args = sys.argv[1:]
     force = "--force" in args or "-f" in args
     paths = [p for p in args if not p.startswith("-")]
 
     if not paths:
-        print("Usage: wechatocr.py [--force] <image_or_dir> ...")
+        print("Usage: wechatocr-skill.py [--force] <image_or_dir> ...")
         sys.exit(1)
 
-    start_server()
+    if not start_server():
+        print("[WARN] WechatOCR service may not be running; OCR calls may fail.", file=sys.stderr)
 
     for path in paths:
         if os.path.isdir(path):
