@@ -1,4 +1,4 @@
-"gitbigfilex.json" 2d4d85388fee6435ab9af5258451507c 11222
+"gitbigfilex.json" 4de82b28629050a08008ebd4c1617089 11111
 "upgrade.bat" 9d1ef1ed5bacf4780fd9803f2a0ed06e 298
 "upgrade_launcher.bat" c00eb34a5eeba5497152f5961dcc425c 131
 "wechatocr.bat" e99530184feb8f8bb7a67b5390bad82e 127
@@ -85,7 +85,6 @@
 "wechatocr\serv\runtime\x64\infonnx64.dll" 7cc61e28fc8b6555fa3f8633d0e48334 3348480
 "wechatocr\serv\runtime\x64\infservx64.dll" 79fa63b46c03ea470cd823bbd8c2d451 248832
 "wechatocr\serv\runtime\x64\inftorch64.dll" d7167954bdb930b6584a292786c7909c 3745792
-"wechatocr\serv\runtime\x64\libopenblas.dll" b0838c318cbfd7275e5a6b46152d44c0 50915048
 "wechatocr\serv\runtime\x64\msvcp140.dll" cb75d6437418afe1a7b52acf75730ff1 565648
 "wechatocr\serv\runtime\x64\msvcp140_1.dll" c1bbf607cd0d540adab62d63a118c0c6 23952
 "wechatocr\serv\runtime\x64\msvcp140_2.dll" dcc3135b7d7c6f32de70ff04fcda20e6 185720
@@ -97,7 +96,6 @@
 "wechatocr\serv\runtime\x64\vcomp140.dll" e29d050b82ec6129211dc8821f56a202 180600
 "wechatocr\serv\runtime\x64\vcruntime140.dll" a87575e7cf8967e481241f13940ee4f7 97168
 "wechatocr\serv\runtime\x64\vcruntime140_1.dll" 37c372da4b1adb96dc995ecb7e68e465 37240
-"wechatocr\serv\runtime\x64\vulkan-1.dll" a5f92fbd4f497399aa70a5e5f9a08b96 1428248
 "wechatocr\serv\runtime\x64\wechatmojo64.dll" 77c1078f3410c55461701375eaca5da0 2046464
 "wechatocr\serv\wechatocr_1-7079.infz" 5aff92a41eb3749c269c615e282a1274 29950272
 "wechatocr_demo.py" e61e088cb3a01a5b904e3bfe19b9ef6c 1869
