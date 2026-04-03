@@ -56,6 +56,6 @@ def wechatocr_netget(fpath, force=False):
     return jsonfile
 
 if __name__ == "__main__":
-    wechatocr_netget("doc_test.jpg", True)
+    wechatocr_netget("test.png", True)
     #main(r"F:\pythonx\myocr\doclayout\样本图片")
     print("ok")
