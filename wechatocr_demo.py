@@ -75,6 +75,7 @@ def wechatocr_netget(fpath, force=False):
     return jsonfile
 
 if __name__ == "__main__":
-    wechatocr_netget("test.png", True)
+    work_dir = os.path.split(os.path.abspath(__file__))[0]
+    wechatocr_netget(os.path.join(work_dir, "test.png"), True)
     #main(r"F:\pythonx\myocr\doclayout\样本图片")
     print("ok")
