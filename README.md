@@ -140,9 +140,9 @@ python wechatocr_demo.py [image_path]
 
 ### OpenClaw Installation
 
-> Clone https://github.com/hawkhai/wechatocr-skill with git and install this skill.
+> 🧑‍💻 **User:** Clone https://github.com/hawkhai/wechatocr-skill with git and install this skill.
 
-> OK, let me check the find-skill / create-skill installation flow first, then proceed step by step. This is an import from an external git repo, so I'll follow the import workflow: clone, verify, then register. Clone succeeded, file structure looks good. Let me check SKILL.md and _meta.json to confirm the structure, then run the verification script. Structure is complete, running verification and then registering. Verification passed, starting registration. ✅ Installation complete!
+> 🤖 **OpenClaw:** OK, let me check the find-skill / create-skill installation flow first, then proceed step by step. This is an import from an external git repo, so I'll follow the import workflow: clone, verify, then register. Clone succeeded, file structure looks good. Let me check SKILL.md and _meta.json to confirm the structure, then run the verification script. Structure is complete, running verification and then registering. Verification passed, starting registration. ✅ Installation complete!
 > 
 > Full workflow:
 > 1. Clone https://github.com/hawkhai/wechatocr-skill ✓
@@ -156,9 +156,9 @@ python wechatocr_demo.py [image_path]
 
 ### Quick Test
 
-> Use the wechatocr-skill to OCR this image <https://github.com/hawkhai/wechatocr-skill/blob/main/test.png> — what text is on it?
+> 🧑‍💻 **User:** Use the wechatocr-skill to OCR this image <https://github.com/hawkhai/wechatocr-skill/blob/main/test.png> — what text is on it?
 
-> Downloading the image, then running WechatOCR. Results are in, reading the JSON. OCR completed — 2 text blocks recognized on the image:
+> 🤖 **OpenClaw:** Downloading the image, then running WechatOCR. Results are in, reading the JSON. OCR completed — 2 text blocks recognized on the image:
 > 
 > | Text | Confidence |
 > |------|------------|
@@ -305,9 +305,9 @@ python wechatocr_demo.py [image_path]
 
 ### OpenClaw 安装
 
-> 用 git 下拉 https://github.com/hawkhai/wechatocr-skill 并安装一下 这个技能。
+> 🧑‍💻 **用户：** 用 git 下拉 https://github.com/hawkhai/wechatocr-skill 并安装一下 这个技能。
 
-> 好，先读一下 find-skill 或 create-skill 的安装流程，再按步骤来。这是从外部 git 仓库导入，按导入流程走。先克隆仓库，再验证，再注册。克隆成功，文件结构正常。先看一下 SKILL.md 和 _meta.json 确认结构，再跑验证脚本。结构完整，跑验证脚本再注册。验证通过，开始注册。✅ 安装完成！
+> 🤖 **OpenClaw：** 好，先读一下 find-skill 或 create-skill 的安装流程，再按步骤来。这是从外部 git 仓库导入，按导入流程走。先克隆仓库，再验证，再注册。克隆成功，文件结构正常。先看一下 SKILL.md 和 _meta.json 确认结构，再跑验证脚本。结构完整，跑验证脚本再注册。验证通过，开始注册。✅ 安装完成！
 > 
 > 整个流程走完：
 > 1. 克隆 `https://github.com/hawkhai/wechatocr-skill` ✓
@@ -321,9 +321,9 @@ python wechatocr_demo.py [image_path]
 
 ### 快速测试
 
-> 用 wechatocr-skill 技能 ocr 一下图片 <https://github.com/hawkhai/wechatocr-skill/blob/main/test.png>，看看上面都有什么文字？
+> 🧑‍💻 **用户：** 用 wechatocr-skill 技能 ocr 一下图片 <https://github.com/hawkhai/wechatocr-skill/blob/main/test.png>，看看上面都有什么文字？
 
-> 先下载图片，再用 WechatOCR 识别。已经输出结果了，读取 JSON。OCR 结果出来了，图片上共识别到 2 段文字：
+> 🤖 **OpenClaw：** 先下载图片，再用 WechatOCR 识别。已经输出结果了，读取 JSON。OCR 结果出来了，图片上共识别到 2 段文字：
 > 
 > | 文字 | 置信度 |
 > |------|--------|
