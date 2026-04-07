@@ -57,7 +57,7 @@ python wechatocr_demo.py [image_path]
   "code": 100,
   "result": {
     "code": 100,
-    "infer_time": 212.64,
+    "infer_time": 215.32,
     "result": true,
     "json": {
       "err_code": 0,
@@ -67,7 +67,7 @@ python wechatocr_demo.py [image_path]
         "single_result": [
           {
             "single_str_utf8": "测试",
-            "single_rate": 0.9959527,
+            "single_rate": 0.995952785,
             "top": 133.318756,
             "left": 170.262512,
             "bottom": 183.112503,
@@ -76,13 +76,13 @@ python wechatocr_demo.py [image_path]
             "bold": 1,
             "text_block_origin": {"pos": [{"x": 172.824081, "y": 139.7939}]},
             "one_result": [
-              {"one_str_utf8": "测", "one_pos": {"pos": [{"x": 170.26, "y": 133.31}]}},
-              {"one_str_utf8": "试", "one_pos": {"pos": [{"x": 201.52, "y": 133.31}]}}
+              {"one_str_utf8": "测", "one_pos": {"pos": [{"x": 170.262512, "y": 133.318756}]}},
+              {"one_str_utf8": "试", "one_pos": {"pos": [{"x": 201.527023, "y": 133.318756}]}}
             ]
           },
           {
             "single_str_utf8": "wechatocr",
-            "single_rate": 0.9989884,
+            "single_rate": 0.99898845,
             "top": 329.484406,
             "left": 384.572876,
             "bottom": 362.648682,
@@ -91,7 +91,7 @@ python wechatocr_demo.py [image_path]
             "bold": 1,
             "text_block_origin": {"pos": [{"x": 359.526978, "y": 325.792694}]},
             "one_result": [
-              {"one_str_utf8": "wechatocr", "one_pos": {"pos": [{"x": 392.60, "y": 329.54}]}}
+              {"one_str_utf8": "wechatocr", "one_pos": {"pos": [{"x": 392.600281, "y": 329.542114}]}}
             ]
           }
         ],
@@ -100,7 +100,7 @@ python wechatocr_demo.py [image_path]
       }
     }
   },
-  "time": 218
+  "time": 953
 }
 ```
 
