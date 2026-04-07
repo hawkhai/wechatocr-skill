@@ -13,9 +13,9 @@ metadata:
   }
 ---
 
-# WechatOCR
+# WechatOCR Skill
 
-对图片执行 OCR，通过本地 WechatOCR HTTP 服务（`http://127.0.0.1:8811`）识别文字，结果保存为同名 JSON 文件。
+对图片执行 OCR，通过本地 WechatOCR HTTP 服务（`http://127.0.0.1:8811`）识别文字，结果保存为同名 `_wechatocr.json` 文件。
 脚本会自动启动推理服务器（`wechatocr_serv.exe`），无需手动预先运行。
 
 ## Usage
