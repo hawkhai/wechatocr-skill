@@ -2,7 +2,7 @@
 import re, os, sys
 import time, json
 import subprocess
-import requests
+import urllib.request
 
 def writefile(path, data, encoding="ISO8859-1", force=False):
     assert type(encoding) == type(""), encoding
@@ -66,8 +66,9 @@ def wechatocr_netget(fpath, force=False):
     reqdata = json.dumps(reqdata).encode("utf8")
     print(reqdata)
     ensure_wechatocr_serv_running()
-    response = requests.get("http://127.0.0.1:8811/Infai/Echo", data=reqdata)
-    fdata = response.json()
+    req = urllib.request.Request("http://127.0.0.1:8811/Infai/Echo", data=reqdata, method="GET")
+    with urllib.request.urlopen(req) as response:
+        fdata = json.loads(response.read().decode("utf-8"))
 
     result = json.dumps(json.loads(fdata["message"]))
     print(result)
@@ -76,6 +77,6 @@ def wechatocr_netget(fpath, force=False):
 
 if __name__ == "__main__":
     work_dir = os.path.split(os.path.abspath(__file__))[0]
-    wechatocr_netget(os.path.join(work_dir, "test.png"), True)
-    #main(r"F:\pythonx\myocr\doclayout\样本图片")
+    image = sys.argv[1] if len(sys.argv) > 1 else os.path.join(work_dir, "test.png")
+    wechatocr_netget(image, True)
     print("ok")
