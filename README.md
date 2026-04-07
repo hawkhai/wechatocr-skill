@@ -73,8 +73,8 @@ python wechatocr_demo.py [image_path]
             "bottom": 183.112503,
             "right": 257.803131,
             "single_pos": {"pos": [{"x": 170.262512, "y": 133.318756}]},
-            "unknown_0": 1,
-            "unknown_pos": {"pos": [{"x": 172.824081, "y": 139.7939}]},
+            "bold": 1,
+            "text_block_origin": {"pos": [{"x": 172.824081, "y": 139.7939}]},
             "one_result": [
               {"one_str_utf8": "测", "one_pos": {"pos": [{"x": 170.26, "y": 133.31}]}},
               {"one_str_utf8": "试", "one_pos": {"pos": [{"x": 201.52, "y": 133.31}]}}
@@ -88,15 +88,15 @@ python wechatocr_demo.py [image_path]
             "bottom": 362.648682,
             "right": 567.91687,
             "single_pos": {"pos": [{"x": 384.808441, "y": 329.484406}]},
-            "unknown_0": 1,
-            "unknown_pos": {"pos": [{"x": 359.526978, "y": 325.792694}]},
+            "bold": 1,
+            "text_block_origin": {"pos": [{"x": 359.526978, "y": 325.792694}]},
             "one_result": [
               {"one_str_utf8": "wechatocr", "one_pos": {"pos": [{"x": 392.60, "y": 329.54}]}}
             ]
           }
         ],
-        "unknown_1": 771,
-        "unknown_2": 479
+        "image_width": 771,
+        "image_height": 479
       }
     }
   },
@@ -109,17 +109,17 @@ python wechatocr_demo.py [image_path]
 | 字段 | 说明 |
 |---|---|
 | `result.json.ocr_result.single_result` | 识别到的文字块列表 |
-| `single_str_utf8` | 文字块的完整识别文本 |
-| `single_rate` | 置信度（0～1） |
+| `single_str_utf8` | 文字块的完整识别文本（UTF8格式整行文本） |
+| `single_rate` | 单行识别置信度（0.0～1.0） |
 | `top` / `left` / `bottom` / `right` | 文字块边界框坐标（像素） |
-| `single_pos` | 文字块**第一个字符**的左上角坐标（推测） |
-| `unknown_0` | 粗体标志 — `0` = 普通边框，`1` = 加粗边框 |
-| `unknown_pos` | **整个文字块**的左上角坐标（推测） |
+| `single_pos` | 该行**第一个字符**的左上角坐标 |
+| `bold` | 粗体标记 — `0` = 普通，`1` = 粗体 |
+| `text_block_origin` | **整个文本块**的起始位置（左上角坐标） |
 | `one_result[].one_str_utf8` | 单字符识别文本 |
 | `one_result[].one_pos` | 单字符起始位置坐标 |
 | `result.json.task_id` | 任务序号 |
 | `result.json.type` | 结果类型 — 目前仅观察到 `0` |
-| `result.json.ocr_result.unknown_1` | 图像宽度（像素，经断言验证） |
-| `result.json.ocr_result.unknown_2` | 图像高度（像素，经断言验证） |
+| `result.json.ocr_result.image_width` | 原始图片宽度（像素） |
+| `result.json.ocr_result.image_height` | 原始图片高度（像素） |
 | `result.infer_time` | 推理耗时（毫秒） |
 | `time` | 总耗时（毫秒） |
