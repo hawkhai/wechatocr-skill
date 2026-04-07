@@ -56,10 +56,9 @@ python wechatocr_demo.py [image_path]
 {
   "code": 100,
   "result": {
-    "code": 100,
     "infer_time": 215.32,
-    "result": true,
-    "json": {
+    "success": true,
+    "ocr_response": {
       "err_code": 0,
       "task_id": 1,
       "type": 0,
@@ -100,7 +99,7 @@ python wechatocr_demo.py [image_path]
       }
     }
   },
-  "time": 953
+  "time": 219
 }
 ```
 
@@ -108,7 +107,8 @@ python wechatocr_demo.py [image_path]
 
 | 字段 | 说明 |
 |---|---|
-| `result.json.ocr_result.single_result` | 识别到的文字块列表 |
+| `result.success` | OCR 是否成功（`true` / `false`） |
+| `result.ocr_response.ocr_result.single_result` | 识别到的文字块列表 |
 | `single_str_utf8` | 文字块的完整识别文本（UTF8格式整行文本） |
 | `single_rate` | 单行识别置信度（0.0～1.0） |
 | `top` / `left` / `bottom` / `right` | 文字块边界框坐标（像素） |
@@ -117,9 +117,9 @@ python wechatocr_demo.py [image_path]
 | `text_block_origin` | **整个文本块**的起始位置（左上角坐标） |
 | `one_result[].one_str_utf8` | 单字符识别文本 |
 | `one_result[].one_pos` | 单字符起始位置坐标 |
-| `result.json.task_id` | 任务序号 |
-| `result.json.type` | 结果类型 — 目前仅观察到 `0` |
-| `result.json.ocr_result.image_width` | 原始图片宽度（像素） |
-| `result.json.ocr_result.image_height` | 原始图片高度（像素） |
+| `result.ocr_response.task_id` | 任务序号 |
+| `result.ocr_response.type` | 结果类型 — 目前仅观察到 `0` |
+| `result.ocr_response.ocr_result.image_width` | 原始图片宽度（像素） |
+| `result.ocr_response.ocr_result.image_height` | 原图片高度（像素） |
 | `result.infer_time` | 推理耗时（毫秒） |
 | `time` | 总耗时（毫秒） |

@@ -69,10 +69,9 @@ python wechatocr_demo.py [image_path]
 {
   "code": 100,
   "result": {
-    "code": 100,
     "infer_time": 215.32,
-    "result": true,
-    "json": {
+    "success": true,
+    "ocr_response": {
       "err_code": 0,
       "task_id": 1,
       "type": 0,
@@ -113,13 +112,14 @@ python wechatocr_demo.py [image_path]
       }
     }
   },
-  "time": 953
+  "time": 219
 }
 ```
 
 | Field | Description |
 |---|---|
-| `result.json.ocr_result.single_result` | Array of recognized text blocks |
+| `result.success` | Whether OCR succeeded (`true` / `false`) |
+| `result.ocr_response.ocr_result.single_result` | Array of recognized text blocks |
 | `single_str_utf8` | Full text of the block |
 | `single_rate` | Confidence score (0.0–1.0) |
 | `top` / `left` / `bottom` / `right` | Bounding box coordinates (pixels) |
@@ -128,10 +128,10 @@ python wechatocr_demo.py [image_path]
 | `text_block_origin` | Origin position of the **entire text block** (top-left) |
 | `one_result[].one_str_utf8` | Per-character recognition text |
 | `one_result[].one_pos` | Per-character start position |
-| `result.json.task_id` | Task sequence number |
-| `result.json.type` | Result type — only `0` currently observed/supported |
-| `result.json.ocr_result.image_width` | Image width (pixels) |
-| `result.json.ocr_result.image_height` | Image height (pixels) |
+| `result.ocr_response.task_id` | Task sequence number |
+| `result.ocr_response.type` | Result type — only `0` currently observed/supported |
+| `result.ocr_response.ocr_result.image_width` | Image width (pixels) |
+| `result.ocr_response.ocr_result.image_height` | Image height (pixels) |
 | `result.infer_time` | Inference time (ms) |
 | `time` | Total response time (ms) |
 
