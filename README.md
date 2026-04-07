@@ -140,32 +140,32 @@ python wechatocr_demo.py [image_path]
 
 ### OpenClaw Installation
 
-> 用 git 下拉 https://github.com/hawkhai/wechatocr-skill 并安装一下 这个技能。
+> Clone https://github.com/hawkhai/wechatocr-skill with git and install this skill.
 
-> 好，先读一下 find-skill 或 create-skill 的安装流程，再按步骤来。这是从外部 git 仓库导入，按导入流程走。先克隆仓库，再验证，再注册。克隆成功，文件结构正常。先看一下 SKILL.md 和 _meta.json 确认结构，再跑验证脚本。结构完整，跑验证脚本再注册。验证通过，开始注册。✅ 安装完成！
+> OK, let me check the find-skill / create-skill installation flow first, then proceed step by step. This is an import from an external git repo, so I'll follow the import workflow: clone, verify, then register. Clone succeeded, file structure looks good. Let me check SKILL.md and _meta.json to confirm the structure, then run the verification script. Structure is complete, running verification and then registering. Verification passed, starting registration. ✅ Installation complete!
 > 
-> 整个流程走完：
-> 1. 克隆 `https://github.com/hawkhai/wechatocr-skill` ✓
-> 2. 验证 结构检查通过 ✓
-> 3. 注册 安装到 `C:\Users\Administrator\.openclaw\skills\wechatocr-skill\` ✓
+> Full workflow:
+> 1. Clone https://github.com/hawkhai/wechatocr-skill ✓
+> 2. Verify — structure check passed ✓
+> 3. Register — installed to C:\Users\Administrator\.openclaw\skills\wechatocr-skill\ ✓
 > 
-> WechatOCR Skill 🔍 现在可以使用了。它的功能是通过本地 WechatOCR HTTP 服务（127.0.0.1:8811）对图片做 OCR 识别，自动启动 wechatocr_serv.exe，无需手动预先运行。用法：
+> WechatOCR Skill 🔍 is now ready to use. It performs OCR on images via a local WechatOCR HTTP service (127.0.0.1:8811), automatically starting wechatocr_serv.exe — no manual setup needed. Usage:
 > ```bat
-> skills\wechatocr-skill\wechatocr-skill.bat [--force] <图片或目录>
+> skills\wechatocr-skill\wechatocr-skill.bat [--force] <image_or_dir>
 > ```
 
 ### Quick Test
 
-> 用 wechatocr-skill 技能 ocr 一下图片 <https://github.com/hawkhai/wechatocr-skill/blob/main/test.png>，看看上面都有什么文字？
+> Use the wechatocr-skill to OCR this image <https://github.com/hawkhai/wechatocr-skill/blob/main/test.png> — what text is on it?
 
-> 先下载图片，再用 WechatOCR 识别。已经输出结果了，读取 JSON。OCR 结果出来了，图片上共识别到 2 段文字：
+> Downloading the image, then running WechatOCR. Results are in, reading the JSON. OCR completed — 2 text blocks recognized on the image:
 > 
-> | 文字 | 置信度 |
-> |------|--------|
+> | Text | Confidence |
+> |------|------------|
 > | 测试 | 99.6% |
 > | wechatocr | 99.9% |
 > 
-> 识别置信度都接近 100%，结果非常准确。这张图就是 WechatOCR 技能的测试图，上面写的是 “测试” 和 “wechatocr”。
+> Confidence scores are near 100%, very accurate. This is the WechatOCR skill test image containing "测试" (test) and "wechatocr".
 
 ---
 
