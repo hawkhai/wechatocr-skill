@@ -15,7 +15,7 @@
 wechatocr-skill\
   wechatocr-skill.bat       # 入口脚本（自动定位 Python）
   wechatocr-skill.py        # 主逻辑
-  wechatocr_demo.py         # 简易演示脚本（依赖 requests 库）
+  wechatocr_demo.py         # 简易演示脚本（纯标准库，无第三方依赖）
   wechatocr\
     wechatocr_serv.exe      # HTTP 服务端（主脚本 & demo 共用）← 自动启动
     wechatocr_1-7079.infz   # 模型文件（两个脚本共用）
@@ -35,10 +35,10 @@ skills\wechatocr-skill\wechatocr-skill.bat [--force] <image_or_dir> ...
 - 传入目录时递归处理所有图片
 - `--force` / `-f`：覆盖已有的 JSON 结果文件
 
-**演示脚本（需要 `requests` 库）：**
+**演示脚本（纯标准库，无第三方依赖）：**
 
 ```bat
-python wechatocr_demo.py
+python wechatocr_demo.py [image_path]
 ```
 
 ## What It Does

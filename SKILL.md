@@ -1,5 +1,5 @@
 ---
-name: wechatocr
+name: wechatocr-skill
 description: "OCR images via local WechatOCR HTTP service"
 metadata:
   {
@@ -54,11 +54,11 @@ wechatocr\
 
 ## Demo Script
 
-`wechatocr_demo.py` is a minimal standalone demo (requires `pip install requests`).
+`wechatocr_demo.py` is a minimal standalone demo (stdlib only, no third-party dependencies).
 It uses `wechatocr_serv.exe` and `wechatocr/wechatocr_1-7079.infz` directly.
 
 ```bat
-python wechatocr_demo.py
+python wechatocr_demo.py [image_path]
 ```
 
 ## Output JSON Format
