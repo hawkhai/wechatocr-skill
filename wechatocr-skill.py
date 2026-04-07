@@ -64,7 +64,7 @@ def start_server() -> bool:
         print(f"[WARN] {SERVER_EXE} not found.", file=sys.stderr)
         return False
     print(f"[wechatocr] {SERVER_EXE} not running, starting: {exe}")
-    subprocess.Popen([exe], cwd=os.path.dirname(exe))
+    subprocess.Popen([exe, "--uid=wechatocr_serv"], cwd=os.path.dirname(exe))
     time.sleep(2)
     return True
 

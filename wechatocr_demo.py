@@ -29,7 +29,7 @@ def ensure_wechatocr_serv_running():
     if not is_wechatocr_serv_running():
         serv_path = find_wechatocr_serv()
         print(f"[wechatocr] wechatocr_serv.exe not running, starting: {serv_path}")
-        subprocess.Popen([serv_path], cwd=os.path.dirname(serv_path))
+        subprocess.Popen([serv_path, "--uid=wechatocr_serv"], cwd=os.path.dirname(serv_path))
         time.sleep(2)
     else:
         print("[wechatocr] wechatocr_serv.exe already running")
@@ -64,7 +64,7 @@ def wechatocr_netget(fpath, force=False):
         "name": "wechatocr",
     }
     reqdata = json.dumps(reqdata).encode("utf8")
-    print(reqdata)
+    #print(reqdata)
     ensure_wechatocr_serv_running()
     req = urllib.request.Request("http://127.0.0.1:8811/Infai/Echo", data=reqdata, method="GET")
     with urllib.request.urlopen(req) as response:
