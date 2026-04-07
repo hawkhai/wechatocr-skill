@@ -6,7 +6,7 @@
 ## Requirements
 
 - **OS:** Windows
-- **Python:** 3.6+（系统 PATH 中的 `python`，或 easyclaw 内置 Python 3.11.9）
+- **Python:** 3.6+（系统 PATH 中的 `python`，或内置 Python 3.11.9）
 - **WechatOCR 推理服务：** `wechatocr_serv.exe`（自动启动）或手动在 `127.0.0.1:8811` 上预先运行
 
 ## File Structure
@@ -133,7 +133,7 @@ python wechatocr_demo.py [image_path]
 > 整个流程走完：
 > 1. 克隆 https://github.com/hawkhai/wechatocr-skill ✓
 > 2. 验证 结构检查通过 ✓
-> 3. 注册 安装到 C:\Users\Administrator\.easyclaw\skills\wechatocr-skill\ ✓
+> 3. 注册 安装到 C:\Users\Administrator\.openclaw\skills\wechatocr-skill\ ✓
 > 
 > WechatOCR Skill 🔍 现在可以使用了。它的功能是通过本地 WechatOCR HTTP 服务（127.0.0.1:8811）对图片做 OCR 识别，自动启动 wechatocr_serv.exe，无需手动预先运行。用法：
 > ```bat

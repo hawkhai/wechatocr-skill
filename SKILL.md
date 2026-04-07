@@ -24,7 +24,7 @@ metadata:
 skills\wechatocr-skill\wechatocr-skill.bat [--force] <image_or_dir> ...
 ```
 
-The batch wrapper locates Python automatically (system `PATH` → two easyclaw fallback paths) before running the script.
+The batch wrapper locates Python automatically (system `PATH` → two openclaw fallback paths) before running the script.
 
 ## What It Does
 
