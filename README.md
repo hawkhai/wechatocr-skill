@@ -145,9 +145,9 @@ python wechatocr_demo.py [image_path]
 > 🤖 **OpenClaw:** OK, let me check the find-skill / create-skill installation flow first, then proceed step by step. This is an import from an external git repo, so I'll follow the import workflow: clone, verify, then register. Clone succeeded, file structure looks good. Let me check SKILL.md and _meta.json to confirm the structure, then run the verification script. Structure is complete, running verification and then registering. Verification passed, starting registration. ✅ Installation complete!
 > 
 > Full workflow:
-> 1. Clone https://github.com/hawkhai/wechatocr-skill ✓
+> 1. Clone `https://github.com/hawkhai/wechatocr-skill` ✓
 > 2. Verify — structure check passed ✓
-> 3. Register — installed to C:\Users\Administrator\.openclaw\skills\wechatocr-skill\ ✓
+> 3. Register — installed to `C:\Users\Administrator\.openclaw\skills\wechatocr-skill\` ✓
 > 
 > WechatOCR Skill 🔍 is now ready to use. It performs OCR on images via a local WechatOCR HTTP service (127.0.0.1:8811), automatically starting wechatocr_serv.exe — no manual setup needed. Usage:
 > ```bat
